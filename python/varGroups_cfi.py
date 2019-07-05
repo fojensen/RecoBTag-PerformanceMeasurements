@@ -1149,6 +1149,7 @@ groupSet = cms.PSet(
         "PatMuon_eta",
         "PatMuon_phi",
         "PatMuon_isTightMuon",
+        "PatMuon_isHighPtMuon",
         "PatMuon_iso",
         "ttbar_trigWord",
         #AK4 Jets
@@ -1158,6 +1159,7 @@ groupSet = cms.PSet(
         "Jet_phi",
         "Jet_tightID",
         "Jet_DeepCSVb",
+        "Jet_DeepCSVbb",
         #AK8 jets
         "FatJetInfo.nJet",
         "FatJetInfo.Jet_pt",
@@ -1168,6 +1170,8 @@ groupSet = cms.PSet(
         "FatJetInfo.Jet_tau1",
         "FatJetInfo.Jet_tau2",
         "FatJetInfo.Jet_DoubleSV",
+        "FatJetInfo.Jet_MassIndDeepDoubleBvLHbb",
+        "FatJetInfo.Jet_DeepDoubleBvLHbb",
         #Subjets
         "SoftDropPuppiSubJetInfo.nJet",
         "SoftDropPuppiSubJetInfo.Jet_pt",
@@ -1176,6 +1180,9 @@ groupSet = cms.PSet(
         "SoftDropPuppiSubJetInfo.Jet_FatJetIdx",
         #misc
         "nPUtrue",
+        "ttbar_metpt",
+        "ttbar_metphi",
+        "ttbar_ptweight",
       ),
     ),
     cms.PSet(

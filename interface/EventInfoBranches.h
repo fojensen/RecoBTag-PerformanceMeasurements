@@ -168,6 +168,7 @@ class EventInfoBranches {
     int PatMuon_isSoftMuon[nMaxPatMuon];
     bool PatMuon_isMediumMuon[nMaxPatMuon];
     int PatMuon_isTightMuon[nMaxPatMuon];
+    int PatMuon_isHighPtMuon[nMaxPatMuon];
     float PatMuon_iso[nMaxPatMuon];
     float PatMuon_isoTrackerOnly[nMaxPatMuon];
     float PatMuon_IP[nMaxPatMuon];
@@ -356,6 +357,7 @@ class EventInfoBranches {
       if(variableParser.isToBeStored("PatMuon_isSoftMuon")) tree->Branch("PatMuon_isSoftMuon", PatMuon_isSoftMuon, "PatMuon_isSoftMuon[nPatMuon]/I");
       if(variableParser.isToBeStored("PatMuon_isMediumMuon")) tree->Branch("PatMuon_isMediumMuon", PatMuon_isMediumMuon, "PatMuon_isMediumMuon[nPatMuon]/O");
       if(variableParser.isToBeStored("PatMuon_isTightMuon")) tree->Branch("PatMuon_isTightMuon", PatMuon_isTightMuon, "PatMuon_isTightMuon[nPatMuon]/I");
+      if(variableParser.isToBeStored("PatMuon_isHighPtMuon")) tree->Branch("PatMuon_isHighPtMuon", PatMuon_isHighPtMuon, "PatMuon_isHighPtMuon[nPatMuon]/I");
       if(variableParser.isToBeStored("PatMuon_iso")) tree->Branch("PatMuon_iso", PatMuon_iso, "PatMuon_iso[nPatMuon]/F");
       if(variableParser.isToBeStored("PatMuon_isoTrackerOnly")) tree->Branch("PatMuon_isoTrackerOnly", PatMuon_isoTrackerOnly, "PatMuon_isoTrackerOnly[nPatMuon]/F");
       if(variableParser.isToBeStored("PatMuon_IP")) tree->Branch("PatMuon_IP", PatMuon_IP, "PatMuon_IP[nPatMuon]/F");
@@ -534,6 +536,7 @@ class EventInfoBranches {
       if(variableParser.isToBeStored("PatMuon_isSoftMuon")) tree->SetBranchAddress("PatMuon_isSoftMuon", PatMuon_isSoftMuon);
       if(variableParser.isToBeStored("PatMuon_isMediumMuon")) tree->SetBranchAddress("PatMuon_isMediumMuon", PatMuon_isMediumMuon);
       if(variableParser.isToBeStored("PatMuon_isTightMuon")) tree->SetBranchAddress("PatMuon_isTightMuon", PatMuon_isTightMuon);
+      if(variableParser.isToBeStored("PatMuon_isHighPtMuon")) tree->SetBranchAddress("PatMuon_isHighPtMuon", PatMuon_isHighPtMuon);
       if(variableParser.isToBeStored("PatMuon_iso")) tree->SetBranchAddress("PatMuon_iso", PatMuon_iso);
       if(variableParser.isToBeStored("PatMuon_isoTrackerOnly")) tree->SetBranchAddress("PatMuon_isoTrackerOnly", PatMuon_isoTrackerOnly);
       if(variableParser.isToBeStored("PatMuon_IP")) tree->SetBranchAddress("PatMuon_IP", PatMuon_IP);

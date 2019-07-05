@@ -1560,9 +1560,11 @@ void BTagAnalyzerT<IPTI,VTX>::analyze(const edm::Event& iEvent, const edm::Event
         if (vtx_idx>-1) {
            EventInfo.PatMuon_isSoftMuon[EventInfo.nPatMuon] = muon::isSoftMuon(*i, primaryVertex->at(vtx_idx));
            EventInfo.PatMuon_isTightMuon[EventInfo.nPatMuon] = muon::isTightMuon(*i, primaryVertex->at(vtx_idx));
+           EventInfo.PatMuon_isHighPtMuon[EventInfo.nPatMuon] = muon::isHighPtMuon(*i, primaryVertex->at(vtx_idx));
         } else {
            EventInfo.PatMuon_isSoftMuon[EventInfo.nPatMuon] = -1;
            EventInfo.PatMuon_isTightMuon[EventInfo.nPatMuon] = -1;
+           EventInfo.PatMuon_isHighPtMuon[EventInfo.nPatMuon] = -1;
         }
         if (i->isPFMuon()) {
            EventInfo.PatMuon_iso[EventInfo.nPatMuon] = (i->pfIsolationR04().sumChargedHadronPt + max(0., i->pfIsolationR04().sumNeutralHadronEt + i->pfIsolationR04().sumPhotonEt - 0.5*i->pfIsolationR04().sumPUPt))/i->pt();

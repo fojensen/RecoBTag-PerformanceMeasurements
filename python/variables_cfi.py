@@ -1087,6 +1087,14 @@ variableList = [
       runOptions  = cms.vstring("runPatMuons"),
     ),
     cms.PSet(
+       variable    = cms.string("PatMuon_isHighPtMuon"),
+       store       = cms.bool(False),
+       mconly      = cms.bool(False),
+       description = cms.string("PatMuon_isHighPtMuon"),
+       requires    = cms.vstring("nPatMuon"),
+       runOptions  = cms.vstring("runPatMuons"),
+    ),
+    cms.PSet(
       variable    = cms.string("PatMuon_iso"),
       store       = cms.bool(False),
       mconly      = cms.bool(False),

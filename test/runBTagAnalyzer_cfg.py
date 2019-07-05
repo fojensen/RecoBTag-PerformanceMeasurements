@@ -20,7 +20,7 @@ options.register('outFilename', 'JetTree',
     VarParsing.varType.string,
     "Output file name"
 )
-options.register('reportEvery', 10,
+options.register('reportEvery', 1000,
     VarParsing.multiplicity.singleton,
     VarParsing.varType.int,
     "Report every N events (default is N=1)"
@@ -70,17 +70,17 @@ options.register('runFatJetClustering', False,
     VarParsing.varType.bool,
     "Cluster fat jets from scratch instead of using those already present in the event"
 )
-options.register('runFatJets', False,
+options.register('runFatJets', True,
     VarParsing.multiplicity.singleton,
     VarParsing.varType.bool,
     "Run fat jets"
 )
-options.register('runSubJets', False,
+options.register('runSubJets', True,
     VarParsing.multiplicity.singleton,
     VarParsing.varType.bool,
     "Run subjets"
 )
-options.register('runEventInfo', False,
+options.register('runEventInfo', True,
     VarParsing.multiplicity.singleton,
     VarParsing.varType.bool,
     "Run Event Info"
@@ -110,7 +110,7 @@ options.register('fatJetAbsEtaMax', 2.5,
     VarParsing.varType.float,
     "Maximum |eta| for fat jets (default is 2.5)"
 )
-options.register('useTTbarFilter', False,
+options.register('useTTbarFilter', True,
     VarParsing.multiplicity.singleton,
     VarParsing.varType.bool,
     "Use TTbar filter"
@@ -318,7 +318,7 @@ options.register('runPFMuonVariables', False,
     VarParsing.multiplicity.singleton,
     VarParsing.varType.bool,
     'True if you want to run PF Muon Variables')
-options.register('runPatMuons', False,
+options.register('runPatMuons', True,
     VarParsing.multiplicity.singleton,
     VarParsing.varType.bool,
     'True if you want to run Pat Muon Variables')
@@ -342,7 +342,7 @@ options.register(
 )
 
 ## 'maxEvents' is already registered by the Framework, changing default value
-options.setDefault('maxEvents', -1)
+options.setDefault('maxEvents', 1000)
 
 options.parseArguments()
 if options.defaults:
@@ -1718,10 +1718,13 @@ for mod in process.producers_().itervalues():
 for mod in process.filters_().itervalues():
     process.tsk.add(mod)
 
+process.AK8JetFilter = cms.EDFilter("AK8JetFilter")
+
 process.p = cms.Path(
-    process.allEvents
+    process.AK8JetFilter
+    #process.allEvents
     * process.filtSeq
-    * process.selectedEvents
+    #* process.selectedEvents
     * process.analyzerSeq,
     process.tsk
 )
